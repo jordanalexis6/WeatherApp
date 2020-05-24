@@ -68,6 +68,9 @@ $("#searchBtn").on("click", function () {
     // get the temperature and convert to fahrenheit
     let tempF = (response.main.temp - 273.15) * 1.8 + 32;
     tempF = Math.floor(tempF);
+    // pulling lon and lat for the UVIndex
+    var lon = response.coord.lon;
+    var lat = response.coord.lat;
     $("#currentCity").empty();
 
     // get and set the content
@@ -90,13 +93,62 @@ $("#searchBtn").on("click", function () {
       "src",
       "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
     );
-
     // add to page
     city.append(cityDate, image);
     cardBody.append(city, temperature, humidity, wind);
     card.append(cardBody);
     $("#currentCity").append(card);
-    // $("#forecastH5").addClass("show");
+
+    // KEVIN HEYYYYY KEVINNNNN :)
+    // i made a uvIndex function on line 110 buuuuutttt i cant get it to print on the card
+    // right now its functioning the same. it breaks if i try link the uv to the card or move anything around.
+    // i havent been able to make the list work besides the first one for some reason. unless i pull lines 128-130 to line 100 BUT no UV or 5 forcast show up.
+    // WEIRD right!? ^
+
+    //   * UV index
+    // Pulling lon, lat info to uvIndex
+    uvIndex(lon, lat);
+
+    function uvIndex(lon, lat) {
+      // SEARCHES
+      var UVQuery =
+        "http://api.openweathermap.org/data/2.5/uvi?" +
+        apiKey +
+        "&lat=" +
+        lat +
+        "&lon=" +
+        lon;
+
+      $.ajax({
+        url: UVQuery,
+        method: "GET",
+      }).then(function (response) {
+        const uvFinal = response.value;
+        // then append button with uvFinal printed to it
+        $("#currentCity").append(card);
+        var badge = $("<div>")
+          .addClass(badge)
+          .text("UV Index: " + uvFinal);
+        $("#currentCity").append(badge);
+        // then style uvFinal button with below
+        if (uvFinal < 3) {
+          // IF RETURN IS 0-2 SYLE GREEN
+          badge.attr("class", " badge-pill badge-success");
+        } else if (uvFinal < 6) {
+          // IF 3-5 STYLE YELLOW
+          badge.attr("class", "badge-pill badge-warning");
+        } else if (uvFinal < 8) {
+          // IF 6-7 STYLE ORANGE
+          badge.attr("class", "badge-pill badge-warning");
+        } else if (uvFinal < 11) {
+          // IF 8-10 STYLE RED
+          badge.attr("class", "badge-pill badge-danger");
+        } else {
+          // IF 11+ STYLE VIOLET
+          badge.attr("class", "badge-pill badge-dark");
+        }
+      });
+    }
   }
 
   function getCurrentForecast() {
