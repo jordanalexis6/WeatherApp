@@ -153,7 +153,7 @@ $("#searchBtn").on("click", function () {
       method: "GET",
     }).then(function (response) {
       $("#forecast").empty();
-
+      $("#forecastH5").addClass("mt-3 mb-3 ml-2").text("5 Day Forecast:");
       // variable to hold response.list
       let results = response.list;
 
@@ -165,9 +165,7 @@ $("#searchBtn").on("click", function () {
           // get the temperature and convert to fahrenheit
           let temp = (results[i].main.temp - 273.15) * 1.8 + 32;
           let tempF = Math.floor(temp);
-          const card = $("<div>").addClass(
-            "card col-md-2 ml-4 mb-4 text-black"
-          );
+          const card = $("<div>").addClass("card col-md-2 ml-4 text-black");
           const cardBody = $("<div>").addClass("card-body p-3 forecastBody");
           const cityDate = $("<h4>")
             .addClass("card-title")
