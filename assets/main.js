@@ -6,6 +6,7 @@ const apiKey = "&appid=bf815721c88bed0e2f63277265b25b11";
 
 let date = new Date();
 
+// this adds the current day and time on the page using moment
 $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 $("#currentTime").text(moment().format("LT"));
 
