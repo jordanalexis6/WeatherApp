@@ -99,12 +99,6 @@ $("#searchBtn").on("click", function () {
     card.append(cardBody);
     $("#currentCity").append(card);
 
-    // KEVIN HEYYYYY KEVINNNNN :)
-    // i made a uvIndex function on line 110 buuuuutttt i cant get it to print on the card
-    // right now its functioning the same. it breaks if i try link the uv to the card or move anything around.
-    // i havent been able to make the list work besides the first one for some reason. unless i pull lines 128-130 to line 100 BUT no UV or 5 forcast show up.
-    // WEIRD right!? ^
-
     //   * UV index
     // Pulling lon, lat info to uvIndex
     uvIndex(lon, lat);
