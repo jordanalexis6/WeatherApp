@@ -165,7 +165,9 @@ $("#searchBtn").on("click", function () {
           // get the temperature and convert to fahrenheit
           let temp = (results[i].main.temp - 273.15) * 1.8 + 32;
           let tempF = Math.floor(temp);
-          const card = $("<div>").addClass("card col-md-2 ml-4 text-black");
+          const card = $("<div>").addClass(
+            "card col-md-2 ml-4 mb-4 text-black"
+          );
           const cardBody = $("<div>").addClass("card-body p-3 forecastBody");
           const cityDate = $("<h6>")
             .addClass("card-title")
