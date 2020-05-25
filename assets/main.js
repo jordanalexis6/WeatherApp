@@ -77,7 +77,7 @@ $("#searchBtn").on("click", function () {
     const card = $("<div>").addClass("card");
     const cardBody = $("<div>").addClass("card-body pb-0 pl-2");
     const city = $("<h4>").addClass("card-title").text(response.name);
-    const cityDate = $("<h4>")
+    const cityDate = $("<h6>")
       .addClass("card-title")
       .text(date.toLocaleDateString("en-US"));
     const temperature = $("<p>")
@@ -167,7 +167,7 @@ $("#searchBtn").on("click", function () {
           let tempF = Math.floor(temp);
           const card = $("<div>").addClass("card col-md-2 ml-4 text-black");
           const cardBody = $("<div>").addClass("card-body p-3 forecastBody");
-          const cityDate = $("<h4>")
+          const cityDate = $("<h6>")
             .addClass("card-title")
             .text(moment(results[i].dt_txt).format("MM/DD/YYYY"));
           const temperature = $("<p>")
