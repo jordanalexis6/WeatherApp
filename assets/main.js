@@ -95,7 +95,7 @@ $("#searchBtn").on("click", function () {
       "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
     );
     const UVIndextxt = $("<p>")
-      .addClass("card-text")
+      .addClass("card-text font-weight-light small")
       .text("UV Index: 0-4 low(green), 4-7 moderate(yellow), 8-11 high(red)");
 
     // add to page
@@ -125,23 +125,23 @@ $("#searchBtn").on("click", function () {
         const uvFinal = response.value;
         // then append button with uvFinal printed to it
         $("#currentCity").append(card);
-        var badge = $("<div>")
-          .addClass(badge)
+        const UVbadge = $("<div>")
+          .addClass("badge mt-auto")
           .text("UV Index: " + uvFinal);
-        $("#currentCity").append(badge);
+        $("#currentCity").append(UVbadge);
         // then style uvFinal button with below
         if (uvFinal < 4) {
           // if 0-4 green bagde
-          badge.addClass("badge-pill badge-success");
+          UVbadge.addClass("badge-pill badge-success");
         } else if (uvFinal < 8) {
           // if 4-7 yellow bagde
-          badge.addClass("badge-pill badge-warning");
+          UVbadge.addClass("badge-pill badge-warning");
         } else if (uvFinal < 12) {
           // if 8-11 red badge
-          badge.addClass("badge-pill badge-danger");
+          UVbadge.addClass("badge-pill badge-danger");
         } else {
           // if 12+ dark badge
-          badge.addClass("badge-pill badge-dark");
+          UVbadge.addClass("badge-pill badge-dark");
         }
       });
     }
