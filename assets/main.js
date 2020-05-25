@@ -75,7 +75,7 @@ $("#searchBtn").on("click", function () {
 
     // get and set the content
     const card = $("<div>").addClass("card");
-    const cardBody = $("<div>").addClass("card-body");
+    const cardBody = $("<div>").addClass("card-body pb-0 pl-2");
     const city = $("<h4>").addClass("card-title").text(response.name);
     const cityDate = $("<h4>")
       .addClass("card-title")
@@ -93,9 +93,13 @@ $("#searchBtn").on("click", function () {
       "src",
       "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
     );
+    const UVIndextxt = $("<p>")
+      .addClass("card-text")
+      .text("UV Index: 0-4 low(green), 4-7 moderate(yellow), 8-11 high(red)");
+
     // add to page
     city.append(cityDate, image);
-    cardBody.append(city, temperature, humidity, wind);
+    cardBody.append(city, temperature, humidity, wind, UVIndextxt);
     card.append(cardBody);
     $("#currentCity").append(card);
 
@@ -125,20 +129,17 @@ $("#searchBtn").on("click", function () {
           .text("UV Index: " + uvFinal);
         $("#currentCity").append(badge);
         // then style uvFinal button with below
-        if (uvFinal < 3) {
-          // IF RETURN IS 0-2 SYLE GREEN
+        if (uvFinal < 4) {
+          // if 0-4 green bagde
           badge.attr("class", " badge-pill badge-success");
-        } else if (uvFinal < 6) {
-          // IF 3-5 STYLE YELLOW
-          badge.attr("class", "badge-pill badge-warning");
         } else if (uvFinal < 8) {
-          // IF 6-7 STYLE ORANGE
+          // if 4-7 yellow bagde
           badge.attr("class", "badge-pill badge-warning");
-        } else if (uvFinal < 11) {
-          // IF 8-10 STYLE RED
+        } else if (uvFinal < 12) {
+          // if 8-11 red badge
           badge.attr("class", "badge-pill badge-danger");
         } else {
-          // IF 11+ STYLE VIOLET
+          // if 12+ dark badge
           badge.attr("class", "badge-pill badge-dark");
         }
       });
