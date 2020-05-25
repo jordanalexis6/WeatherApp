@@ -106,7 +106,7 @@ $("#searchBtn").on("click", function () {
     function uvIndex(lon, lat) {
       // SEARCHES
       var UVQuery =
-        "http://api.openweathermap.org/data/2.5/uvi?" +
+        "https://api.openweathermap.org/data/2.5/uvi?" +
         apiKey +
         "&lat=" +
         lat +
