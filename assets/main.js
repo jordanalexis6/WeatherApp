@@ -73,7 +73,7 @@ $("#searchBtn").on("click", function () {
     var lat = response.coord.lat;
     $("#currentCity").empty();
 
-    // get and set the content
+    // get and set the content in card
     const card = $("<div>").addClass("card");
     const cardBody = $("<div>").addClass("card-body pb-0 pl-2");
     const city = $("<h4>").addClass("card-title").text(response.name);
@@ -131,16 +131,16 @@ $("#searchBtn").on("click", function () {
         // then style uvFinal button with below
         if (uvFinal < 4) {
           // if 0-4 green bagde
-          badge.attr("class", " badge-pill badge-success");
+          badge.addClass("badge-pill badge-success");
         } else if (uvFinal < 8) {
           // if 4-7 yellow bagde
-          badge.attr("class", "badge-pill badge-warning");
+          badge.addClass("badge-pill badge-warning");
         } else if (uvFinal < 12) {
           // if 8-11 red badge
-          badge.attr("class", "badge-pill badge-danger");
+          badge.addClass("badge-pill badge-danger");
         } else {
           // if 12+ dark badge
-          badge.attr("class", "badge-pill badge-dark");
+          badge.addClass("badge-pill badge-dark");
         }
       });
     }
