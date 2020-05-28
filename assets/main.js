@@ -26,6 +26,12 @@ function listCities() {
   console.log(cities);
   for (var i = 0; i < cities.length; i++)
     $(".list").append('<li class="list-item">' + cities[i] + "</li>");
+  // sets on click for the list of cities in the history list
+  $(".list-item").on("click", function () {
+    city = $(this).text();
+    $("#searchCity").val(city);
+    $("#searchBtn").click();
+  });
 }
 // localStorage
 function makeList() {
@@ -37,13 +43,6 @@ function makeList() {
   localStorage.setItem("cities", JSON.stringify(cities));
   listCities();
 }
-
-// sets on click for the list of cities in the history list
-$(".list-item").on("click", function () {
-  city = $(this).text();
-  $("#searchCity").val(city);
-  $("#searchBtn").click();
-});
 
 // searching a city
 $("#searchBtn").on("click", function () {
