@@ -1,5 +1,5 @@
 <!-- Top -->
-<h1 align='center'>Weather Forcast Dashboard</h1>
+<h1 align='center'>Weather Forcast App</h1>
 <h2>💡 Project Overview</h2>
 <p>Build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS. Using [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. We will use `localStorage` to store any persistent data.
 
