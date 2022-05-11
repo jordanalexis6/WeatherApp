@@ -27,7 +27,7 @@ SO THAT I can plan a trip accordingly
 
 </ul>
 <h2>📓 Contributor(s)</h2>
-<div>Jordan Neill</div>
+<div>Jordan Peña</div>
     <li><a href='https://github.com/jordanalexis6.github.io' target='_blank'>GitHub</a></li>
     <li><a href='https://www.linkedin.com/in/jordanalexis6' target='_blank'>LinkedIn</a></li>
     <li>jordan.a.neill@gmail.com</li>
